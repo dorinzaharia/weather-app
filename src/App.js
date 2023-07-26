@@ -1,10 +1,11 @@
-import './App.css';
 import Search from './components/Search';
+import './App.css';
 
 function App() {
+  const handleOnSearchChange = () => {};
   return (
     <div className='container'>
-      <Search />
+      <Search onSearchChange={handleOnSearchChange} />
     </div>
   );
 }
