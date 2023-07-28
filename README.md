@@ -1,5 +1,5 @@
 # Weather app project
-A simple React weather application built using the OpenWeatherMap API and the GeoDB API The application is created following [this](https://www.youtube.com/watch?v=Reny0cTTv24) freeCodeCamp video. The styling(css files) is completely copied.
+A simple React weather application built using the OpenWeatherMap API and the GeoDB API for learning purposes. The application is created following [this](https://www.youtube.com/watch?v=Reny0cTTv24) freeCodeCamp video. The styling(css files) is completely copied.
 
 # Getting Started with Create React App
 
