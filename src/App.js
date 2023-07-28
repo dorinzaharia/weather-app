@@ -10,27 +10,27 @@ function App() {
   const [forecastWeather, setForecastWeather] = useState(null);
 
   const handleOnSearchChange = (searchData) => {
-    fetchCurrentWeather(searchData.lat, searchData.lon, searchData.label);
-    fetchWeatherForecast(searchData.lat, searchData.lon, searchData.label);
+    fetchCurrentWeather(searchData);
+    fetchWeatherForecast(searchData);
   };
 
-  const fetchCurrentWeather = async (lon, lat, city) => {
+  const fetchCurrentWeather = async (data) => {
     try {
       const response = await axios({
-        url: `${process.env.REACT_APP_OPENWEATHER_API_URL}/data/2.5/weather?lon=${lon}&lat=${lat}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`,
+        url: `${process.env.REACT_APP_OPENWEATHER_API_URL}/data/2.5/weather?lon=${data.lon}&lat=${data.lat}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`,
       });
       console.log(response);
-      setCurrentWeather({ city: city, ...response.data });
+      setCurrentWeather({ city: data.city, ...response.data });
     } catch (error) {
       console.error(error);
     }
   };
-  const fetchWeatherForecast = async (lon, lat, city) => {
+  const fetchWeatherForecast = async (data) => {
     try {
       const response = await axios({
-        url: `${process.env.REACT_APP_OPENWEATHER_API_URL}/data/2.5/forecast?lon=${lon}&lat=${lat}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`,
+        url: `${process.env.REACT_APP_OPENWEATHER_API_URL}/data/2.5/forecast?lon=${data.lon}&lat=${data.lat}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`,
       });
-      setForecastWeather({ city: city, ...response.data });
+      setForecastWeather({ city: data.city, ...response.data });
     } catch (error) {
       console.error(error);
     }
